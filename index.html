@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ngInstagram">
+<head>
+	<meta charset="UTF-8">
+	<title>ngInstagram</title>
+	<link rel="shortcut icon" type="image/png" href="insta.png"/>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script src="angular-animate.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+	<img src="ng-instagram.png" alt="logo" class="logo">
+	<form name="searchForm" ng-submit="search(tag)" novalidate>
+		<input type="text" placeholder="Enter a tag to search" ng-model="tag" ng-pattern="/^[a-zA-Z0-9_\-]*$/" required>
+		<input type="submit" value="Submit" ng-disabled="searchForm.$invalid">
+	</form>
+	<div ng-show="searching">
+		<h2>Searching Instagram for photos tagged with "{{savedTag}}"</h2>
+		<div class="loading"></div>
+	</div>
+	<section class="results" ng-hide="searching || !photos">
+		<h3 ng-if="photos.length > 0">Here are {{photos.length}} results for "{{savedTag}}"</h3>
+		<h1 ng-if="photos.length == 0 && searchForm.$submitted">No photos found for "{{savedTag}}"</h1>
+		<a ng-href="{{photo.page}}" class="photo-link" target="_blank" ng-repeat="photo in photos">
+			<div ng-style="{'background-image': 'url(\'{{photo.file}}\')'}" class="photo"></div>
+		</a>
+	</section>
+</body>
+</html>

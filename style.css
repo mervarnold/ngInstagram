@@ -1,0 +1,95 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	margin-top: 55px;
+}
+
+form, h2 {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.logo {
+	margin: auto;
+	display: block;
+	width: 35%;
+}
+
+input {
+	border-color: #000;
+	padding: 10px;
+	border-radius: 2px;
+	background: #fff;
+}
+
+input[type="text"] {
+	width: 200px;
+}
+
+input.ng-dirty.ng-invalid {
+	border: 3px solid red;
+}
+
+.results {
+	margin: 80px;
+	text-align: center;
+}
+
+.photo {
+	border-radius: 5px;
+	margin: 15px;
+	width: 300px;
+	height: 300px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 1px solid #d9d9d9;
+}
+
+.loading {
+	background-image: url('loading.png');
+	width: 100px;
+	height: 100px;
+	background-size: cover;
+	margin: auto;
+	margin-top: 45px;
+	margin-bottom: 50px;
+	-webkit-animation: spinner 0.7s linear infinite;
+	animation: spinner 0.7s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spinner {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.photo-link.ng-enter.ng-enter-active {
+	opacity: 1;	
+}
+
+.photo-link.ng-enter {
+	opacity: 0;
+	transition: 2s linear all;
+}
+
+.photo-link.ng-enter-stagger {
+	transition-delay: 0.5s;
+}
+
+.results.ng-hide-remove {
+	transition: 1s linear all;
+	opacity: 1;
+}
+
+.results.ng-hide {
+	opacity: 0;
+}
+
+
+
+
+
